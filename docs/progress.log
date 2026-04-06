@@ -8,3 +8,4 @@ Day 5 updated: Uptime Kuma self-monitor deferred; service validation kept based 
 Day 6 completed: monitoring baseline organized, monitor types standardized, and availability monitoring differentiated from future performance monitoring.
 Day 7 completed: Node Exporter installed on the host, metrics endpoint validated, Prometheus deployed in Docker, and node scrape connectivity fixed through the correct Docker bridge firewall rule, and basic Prometheus queries validated successfully.
 Day 8 completed: Grafana deployed in Docker, persistent storage permissions corrected, Prometheus added as data source, and the first InfraBox host dashboard created with memory, filesystem, uptime, and CPU panels.
+Day 9 completed: InfraBox repository structure finalized, documentation packaged, screenshots added, and project published to GitHub.
