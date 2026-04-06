@@ -68,7 +68,7 @@ Grafana runs in Docker and uses Prometheus as its data source.
 
 A first dashboard called InfraBox Host Overview was created with:
  - Available Memory
- - Root Filesystem Available
+ - Root Filesystem Available Space
  - CPU Busy
  - Host Uptime
 
