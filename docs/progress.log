@@ -1,0 +1,10 @@
+Day 1 completed: baseline reviewed, inherited services identified, reused system state documnted.
+Day 2 in progress: baseline report created, Nginx reviewed, Samba kept under controlled review.
+Day 2 updated: Nginx and Samba assessed, hostname intentionally kept as Kiroshi.
+Day 3 completed: host identity, local resolution, and local service access validated.
+Day 4 completed: Docker Engine and Compose plugin installed, runtime and compose baseline validated.
+Day 5 completed: Uptime Kuma deployed as the first real InfraBox service with persistent storage and local access validation.
+Day 5 updated: Uptime Kuma self-monitor deferred; service validation kept based on container health, port exposure, and direct host-side HTTP checks.
+Day 6 completed: monitoring baseline organized, monitor types standardized, and availability monitoring differentiated from future performance monitoring.
+Day 7 completed: Node Exporter installed on the host, metrics endpoint validated, Prometheus deployed in Docker, and node scrape connectivity fixed through the correct Docker bridge firewall rule, and basic Prometheus queries validated successfully.
+Day 8 completed: Grafana deployed in Docker, persistent storage permissions corrected, Prometheus added as data source, and the first InfraBox host dashboard created with memory, filesystem, uptime, and CPU panels.
