@@ -27,6 +27,7 @@ The project is designed as a hands-on learning environment focused on real opera
  - OpenSSH
 
 ## Architecture
+```
 Debian Host (Kiroshi)
 |----SSH
 |----Nginx
@@ -37,7 +38,7 @@ Debian Host (Kiroshi)
      |---- Uptime Kuma
      |---- Prometheus
      |---- Grafana
-
+```
 ## Implemented Components
 
 ### Host Services
@@ -80,7 +81,8 @@ This project included practical troubleshooting involving:
  - Grafana persistent volume permission issues
  - YAML formatting and Docker Compose validation
 
-### Repository Structure
+## Repository Structure
+```
 .
 ├── README.md
 ├── compose/
@@ -93,14 +95,18 @@ This project included practical troubleshooting involving:
 │       └── docker-compose.yml
 ├── docs/
 │   ├── baseline-report.md
+│   ├── day1-notes.md
+│   ├── day3-validation.md
+│   ├── day4-docker-baseline.md
 │   ├── day5-uptime-kuma.md
 │   ├── day6-monitoring-baseline.md
 │   ├── day7-node-exporter.md
 │   ├── day8-grafana.md
-│   └── progress.log
+│   ├── progress.log
+│   └── services.md
 └── assets/
     └── screenshots/
-
+```
 ## Screenshots
 
 ### Uptime Kuma
