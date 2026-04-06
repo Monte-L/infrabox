@@ -1,51 +1,107 @@
 # InfraBox - Service Review
 
 ## Host Context
-This InfraBox project is being built on a reused Debian system whose current hostname remains 'Kiroshi'.
+InfraBox is being built on a reused Debian host whose current hostname intentionally remains **Kiroshi**.
 
 ## Primary Project Focus
-THe main objective of InfraBox is to build a private Linux infraestructure server with monitoring,
-containerized services, backup routines, and secure remote access.
+The main goal of InfraBox is to build a private Linux infrastructure lab focused on:
+- service validation
+- monitoring and observability
+- containerized infrastructure tools
+- structured troubleshooting documentation
 
-## Auxiliary Services
+## Active Host Services
 
-### Samba
-Status: kept for now
+### OpenSSH
+**Status:** active and in use
 
-Reason:
-Samba may still be used as an auxiliary file sharing service during the project.
+**Role:** remote administration and secure shell access to the Debian host.
 
-Role:
-Optional file sharing service inherited from a previous Linux project.
+**Current state:** SSH is enabled, running, listening on port 22, and validated through both local checks and Uptime Kuma monitoring.
 
-Current state:
-Samba is active and configured as an standalone server with an existing shared directory.
+**Decision:** keep enabled as a core infrastructure service.
 
-Decision: Samba will not be removed at this stage. Its long-term role will be reviewed later based on
-actual usage.
+---
 
 ### Nginx
-Status: under review
+**Status:** active and in use
 
-Reason:
-Nginx was inherited from a previous project and may be replaced or reconfigured later as part of the
-InfraBox architecture.
+**Role:** local HTTP service used for web service validation and monitoring practice.
 
-Current state:
-Nginx is active, enabled, and listening on port 80. Existing inherited site configuration includes
-'default' and 'lab.local'.
+**Current state:** Nginx is enabled, running, listening on port 80, and responding correctly to local HTTP requests. It is also monitored through Uptime Kuma.
 
-Decision:
-Nginx will not be removed at this stage. It remains under review and may later be reconfigured
-or replaced as part of the InfraBox architecture.
+**Decision:** keep enabled as a validated HTTP service in the lab.
+
+---
+
+### Samba
+**Status:** active and kept as auxiliary service
+
+**Role:** optional SMB file sharing service for local network access and monitoring validation.
+
+**Current state:** Samba remains active as a standalone service and is currently included in monitoring checks.
+
+**Decision:** keep for now as an auxiliary service while it remains useful in the lab.
+
+---
+
+### Node Exporter
+**Status:** active and in use
+
+**Role:** expose host-level metrics for Prometheus collection.
+
+**Current state:** Node Exporter runs directly on the Debian host, listens on port 9100, and provides metrics successfully scraped by Prometheus.
+
+**Decision:** keep enabled as a core observability component.
+
+## Active Containerized Services
+
+### Uptime Kuma
+**Status:** active and in use
+
+**Role:** service availability monitoring.
+
+**Current state:** Uptime Kuma runs in Docker and monitors local SSH, Nginx HTTP, and Samba SMB through the host IP.
+
+**Decision:** keep enabled as the availability monitoring layer of the project.
+
+---
+
+### Prometheus
+**Status:** active and in use
+
+**Role:** metrics scraping and time-series storage.
+
+**Current state:** Prometheus runs in Docker, scrapes Node Exporter successfully, and shows the `node` target in `UP` state.
+
+**Decision:** keep enabled as the metrics collection layer of the project.
+
+---
+
+### Grafana
+**Status:** active and in use
+
+**Role:** metrics visualization and dashboarding.
+
+**Current state:** Grafana runs in Docker, uses Prometheus as a data source, and provides the **InfraBox Host Overview** dashboard.
+
+**Decision:** keep enabled as the visualization layer of the project.
+
+## Inherited But Not Used
 
 ### samba-ad-dc
-Status: inherited but not in use
+**Status:** inherited but not in use
 
-Reason:
-The service exists in the system but is inactive and does not appear to be required for the current
-standalone Samba setup.
+**Role:** none in the current InfraBox design.
 
-Decision:
-No action will be taken at this stage. The service may be disabled or removed later if confirmed 
-unnecessary.
+**Current state:** the service exists in the system but is not part of the active standalone Samba usage model.
+
+**Decision:** leave untouched for now, with possible later removal if confirmed unnecessary.
+
+## Summary
+InfraBox currently uses a mixed service model:
+
+- **host services** for core local infrastructure functions
+- **containerized services** for monitoring and observability tooling
+
+At the current stage, the active service stack is considered valid and aligned with the project goals.
